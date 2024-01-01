@@ -1,56 +1,85 @@
-/* src/components/LoginForm.css */
+/* Home.css */
+body {
+    background: linear-gradient(105deg, #88beee, #0a2e73);
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+}
 
-.form-container {
-    max-width: 300px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+.container {
     text-align: center;
-    /* Center align the form content */
+    padding: 50px;
 }
 
-h2 {
-    color: #333;
+h1 {
+    color: #fff;
+    font-size: 36px;
     margin-bottom: 20px;
-    /* Add margin for better spacing */
 }
 
-label {
-    display: block;
-    margin-bottom: 8px;
-    color: #555;
-}
-
-input {
-    width: calc(100% - 16px);
-    padding: 8px;
-    margin-bottom: 12px;
-    box-sizing: border-box;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+.buttons-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
 }
 
 button {
-    background-color: #3498db;
+    background-color: #0d6ad7;
     color: #fff;
-    padding: 10px 16px;
-    font-size: 16px;
+    padding: 12px 24px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    width: 100%;
+    font-size: 18px;
+    text-transform: uppercase;
+    margin: 0 10px;
     transition: background-color 0.3s ease;
 }
 
 button:hover {
-    background-color: #217dbb;
+    background-color: #051c94;
 }
 
-.error {
-    color: red;
-    font-size: 0.8rem;
-    margin-top: -8px;
+/* Additional Form Styling */
+.form-container {
+    max-width: 400px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Label Styling */
+label {
+    display: block;
     margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Form Input Styling */
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Form Button Styling */
+.form-button {
+    background-color: #0d6ad7;
+    color: #fff;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+}
+
+.form-button:hover {
+    background-color: #051c94;
 }

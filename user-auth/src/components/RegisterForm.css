@@ -1,136 +1,135 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    list-style: none;
-    font-family: 'Montserrat', sans-serif;
-}
-
+/* RegisterForm.css */
 body {
-    background: linear-gradient(105deg, #88beee, #0a2e73);
-}
-
-.wrapper {
-    justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    display: flex;
-}
-
-.registration_form {
-    border-radius: 5px;
-    width: 400px;
-    background: white;
-    padding: 25px;
-}
-
-.registration_form .title {
-    color: white;
-    background: rgb(13, 98, 215);
-    letter-spacing: 2px;
-    font-weight: 700;
-    text-align: center;
-    font-size: 25px;
-    text-transform: uppercase;
-    margin-top: -25px;
-    margin-left: -25px;
-    margin-right: -25px;
-}
-
-.form_wrap {
-    margin-top: 35px;
-}
-
-.form_wrap .input_wrap {
-    margin-bottom: 15px;
-}
-
-.form_wrap .input_wrap:last-child {
-    margin-bottom: 0;
-}
-
-.form_wrap .input_wrap label {
-    margin-bottom: 3px;
-    color: #1a1a1f;
-    display: block;
-}
-
-.form_wrap .input_grp {
-    display: flex;
-    justify-content: space-between;
-}
-
-.form_wrap .input_grp input[type="text"] {
-    width: 165px;
-}
-
-.form_wrap input[type="text"] {
-    width: 100%;
-    padding: 10px;
-    outline: none;
-    border-radius: 3px;
-    border: 1.3px solid #9597a6;
-}
-
-.form_wrap input[type="text"]:focus {
-    border-color: #063abd;
-}
-
-.form_wrap ul {
-    padding: 8px 10px;
-    border-radius: 20px;
+    background-color: #f0f0f0;
     display: flex;
     justify-content: center;
-    border: 1px solid rgb(115, 185, 235);
-    width: 70%;
-    background: rgb(206, 238, 242);
-    margin-left: 15%;
+    height: 100vh;
 }
 
-.form_wrap ul li:first-child {
-    margin-right: 15px;
+.form {
+    background-color: #fff;
+    border-radius: 20px;
+    box-sizing: border-box;
+    height: 500px;
+    padding: 20px;
+    width: 320px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.form_wrap ul .radio_wrap {
+.title {
+    color: #333;
+    font-family: 'Arial', sans-serif;
+    font-size: 36px;
+    font-weight: 600;
+    margin-top: 30px;
+}
+
+.subtitle {
+    color: #666;
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.input-container {
+    height: 50px;
     position: relative;
-    margin-bottom: 0;
-}
-
-.form_wrap ul .radio_wrap .input_radio {
-    position: absolute;
-    top: 0;
-    right: 0;
-    opacity: 0;
-}
-
-.form_wrap ul .radio_wrap span {
-    display: inline-block;
-    font-size: 17px;
-    padding: 3px 15px;
-    border-radius: 15px;
-    color: #101749;
-}
-
-.form_wrap .input_radio:checked~span {
-    background: #105ce2;
-    color: white;
-}
-
-/* Submit Button */
-.form_wrap .submit_btn {
-    font-size: 17px;
-    border-radius: 3px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    cursor: pointer;
     width: 100%;
-    background: #0d6ad7;
-    padding: 10px;
-    border: 0;
-    color: white;
+    margin-bottom: 20px;
 }
 
-/* Button Hover effect */
-.form_wrap .submit_btn:hover {
-    background: #051c94;
+.input {
+    background-color: #f5f5f5;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    color: #333;
+    font-size: 18px;
+    height: 100%;
+    outline: 0;
+    padding: 10px;
+    width: calc(100% - 20px);
+    transition: border-color 0.3s;
+}
+
+.input:focus {
+    border-color: #3498db;
+}
+
+.cut {
+    background-color: #fff;
+    border-radius: 10px;
+    height: 20px;
+    left: 20px;
+    position: absolute;
+    top: -20px;
+    transform: translateY(0);
+    transition: transform 200ms;
+    width: 76px;
+}
+
+.cut-short {
+    width: 50px;
+}
+
+.input:focus~.cut,
+.input:not(:placeholder-shown)~.cut {
+    transform: translateY(8px);
+}
+
+.placeholder {
+    color: #888;
+    font-family: 'Arial', sans-serif;
+    left: 20px;
+    line-height: 14px;
+    pointer-events: none;
+    position: absolute;
+    transform-origin: 0 50%;
+    transition: transform 200ms, color 200ms;
+    top: 20px;
+}
+
+.input:focus~.placeholder,
+.input:not(:placeholder-shown)~.placeholder {
+    transform: translateY(-30px) translateX(10px) scale(0.75);
+    color: #3498db;
+}
+
+.submit {
+    background-color: #3498db;
+    border-radius: 12px;
+    border: 0;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    font-size: 18px;
+    height: 50px;
+    text-align: center;
+    width: 100%;
+    transition: background-color 0.3s;
+}
+
+.submit:active {
+    background-color: #2980b9;
+}
+
+/* RegisterForm.css */
+
+/* ... (existing styles) ... */
+
+.home-button {
+    display: inline-block;
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.home-button:hover {
+    background-color: #2980b9;
 }

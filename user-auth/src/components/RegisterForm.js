@@ -1,9 +1,11 @@
 // src/components/RegisterForm.js
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './RegisterForm.css'; // Import the CSS file
 
 const RegisterForm = () => {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     username: '',
     email: '',
@@ -22,6 +24,14 @@ const RegisterForm = () => {
       ...formData,
       [name]: value,
     });
+
+    // Clear the phoneNumber error when it's a valid 10-digit number
+    if (name === 'phoneNumber' && value.length === 10) {
+      setErrors({
+        ...errors,
+        phoneNumber: '',
+      });
+    }
   };
 
   const handleSubmit = (e) => {
@@ -29,15 +39,28 @@ const RegisterForm = () => {
     const validationErrors = validateForm(formData);
     if (Object.keys(validationErrors).length === 0) {
       saveDataToJSON(formData);
-      alert('Registration successful!');
+
+      // Redirect to OTP page after successful registration
+      navigate('/otp', {
+        state: {
+          phoneNumber: formData.phoneNumber,
+          email: formData.email,
+        },
+      });
     } else {
       setErrors(validationErrors);
     }
   };
 
   const validateForm = (data) => {
-    // Implement your validation logic here
     const errors = {};
+
+    // Validate if the phone number is a valid 10-digit number
+    const phoneNumberRegex = /^\d{10}$/;
+    if (!phoneNumberRegex.test(data.phoneNumber)) {
+      errors.phoneNumber = 'Please enter a valid 10-digit phone number';
+    }
+
     // Example validation: Check if fields are not empty
     Object.keys(data).forEach((key) => {
       if (!data[key]) {
@@ -97,7 +120,12 @@ const RegisterForm = () => {
           {errors.lastName && <div className="error">{errors.lastName}</div>}
         </label>
 
-        <button type="submit">Register</button>
+        <div className="form-buttons">
+          <button type="submit">Register</button>
+          <Link to="/login" className="login-link">
+            Already have an account? Login
+          </Link>
+        </div>
       </form>
 
       <Link to="/" className="home-button">
@@ -108,3 +136,4 @@ const RegisterForm = () => {
 };
 
 export default RegisterForm;
+
