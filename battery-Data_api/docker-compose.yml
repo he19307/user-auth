@@ -1,0 +1,35 @@
+version: '3.8'
+
+volumes:
+  batterydb_vol:
+
+networks:
+  api_network:
+
+services:
+  battery-api:
+    container_name: battery-service
+    build:
+      context: .
+    ports:
+      - "1111:1111"
+    depends_on:
+      - battery-db
+    networks:
+      - api_network
+    restart: always
+
+  battery-db:
+    container_name: battery_db
+    image: mysql:8
+    ports:
+      - "32000:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: IDAN-ADMIN
+      MYSQL_DATABASE: batterydb
+      MYSQL_USER: idan
+      MYSQL_PASSWORD: IDAN_api
+    networks:
+      - api_network
+    volumes:
+      - batterydb_vol:/var/lib/mysql
